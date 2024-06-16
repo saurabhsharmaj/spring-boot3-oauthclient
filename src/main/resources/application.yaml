@@ -1,0 +1,18 @@
+server:
+  port: 8090
+
+#keycloak-url: "http://nuc:8080"
+keycloak-url: "http://localhost:8081"
+
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          my-secret-client:
+            client-id: "curl_client"
+            client-secret: "admin"
+            authorization-grant-type: client_credentials         
+        provider:
+          my-secret-client:
+            token-uri: "${keycloak-url}/oauth/token"
